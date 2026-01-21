@@ -1,7 +1,5 @@
 <?php
-/* --------------------------------
- * Register Custom Post Type: Jobs
- * -------------------------------- */
+
 function register_jobs_cpt() {
     $labels = array(
         'name'               => 'Jobs',
@@ -30,9 +28,6 @@ function register_jobs_cpt() {
 add_action('init', 'register_jobs_cpt');
 
 
-/* --------------------------------
- * Add Meta Boxes
- * -------------------------------- */
 function jobs_meta_boxes() {
     add_meta_box(
         'jobs_details',
@@ -60,10 +55,6 @@ function jobs_meta_box_callback($post) {
     <?php
 }
 
-
-/* --------------------------------
- * Save Meta Box Data
- * -------------------------------- */
 function save_jobs_meta($post_id) {
     if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) return;
 
