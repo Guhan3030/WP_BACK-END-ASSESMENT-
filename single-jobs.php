@@ -1,5 +1,6 @@
 <?php get_header(); ?>
 
+<div class="jobs-container">
 <?php while (have_posts()) : the_post(); ?>
 
     <h1><?php the_title(); ?></h1>
@@ -8,14 +9,12 @@
         <?php the_content(); ?>
     </div>
 
-    <p><strong>Salary:</strong>
-        <?php echo esc_html(get_post_meta(get_the_ID(), '_job_salary', true)); ?>
-    </p>
-
-    <p><strong>Location:</strong>
-        <?php echo esc_html(get_post_meta(get_the_ID(), '_job_location', true)); ?>
-    </p>
+    <div class="job-meta">
+        <span>Salary: <?php echo esc_html(get_post_meta(get_the_ID(), '_job_salary', true)); ?></span>
+        <span>Location: <?php echo esc_html(get_post_meta(get_the_ID(), '_job_location', true)); ?></span>
+    </div>
 
 <?php endwhile; ?>
+</div>
 
 <?php get_footer(); ?>
